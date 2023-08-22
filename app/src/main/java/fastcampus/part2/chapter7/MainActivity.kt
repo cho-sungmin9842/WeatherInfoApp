@@ -32,12 +32,15 @@ class MainActivity : AppCompatActivity() {
                 permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true -> {
                     updateLocation()
                 }
+
                 permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true -> {
                     updateLocation()
                 }
+
                 permissions[Manifest.permission.ACCESS_FINE_LOCATION] == false -> {
                     showDialog()
                 }
+
                 permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == false -> {
                     showDialog()
                 }
@@ -141,6 +144,7 @@ class MainActivity : AppCompatActivity() {
             object : CancellationToken() {
                 override fun onCanceledRequested(p0: OnTokenCanceledListener) =
                     CancellationTokenSource().token
+
                 override fun isCancellationRequested() = false
             })
             .addOnSuccessListener { location ->
@@ -182,11 +186,14 @@ class MainActivity : AppCompatActivity() {
                             // 하늘 상태 정보 설정
                             firstItemView.skyTextView.text = currentForecast.weather
                             // 강수 확률 값 내용 설정
-                            firstItemView.precipitationTextView.text =
+                            firstItemView.precipitationPercentTextView.text =
                                 getString(
-                                    R.string.precipitation_text,
-                                    currentForecast.precipitation
+                                    R.string.precipitation_precent_text,
+                                    currentForecast.precipitationPercent
                                 )
+                            firstItemView.precipitationTextView.text =
+                                if (currentForecast.precipitation == "강수없음") currentForecast.precipitation
+                                else "시간당 강수량: ${currentForecast.precipitation}"
                             addView(firstItemView.root)
                         }
                         // LinearLayout(ViewGroup)에 동적으로 뷰 추가
@@ -211,11 +218,16 @@ class MainActivity : AppCompatActivity() {
                                 // 1시간 기온 값 내용 설정
                                 itemView.temperatureTextView.text =
                                     getString(R.string.temperature_text, forecast.temperature)
-                                itemView.precipitationTextView.text =
+                                // 강우 확률 내용 설정
+                                itemView.precipitationPercentageTextView.text =
                                     getString(
-                                        R.string.precipitation_text,
-                                        forecast.precipitation
+                                        R.string.precipitation_precent_text,
+                                        forecast.precipitationPercent
                                     )
+                                // 시간당 강우량 내용 설정
+                                itemView.precipitationTextView.text =
+                                    if (forecast.precipitation == "강수없음") forecast.precipitation
+                                    else "시간당 강수량: ${forecast.precipitation}"
                                 // LinearLayout(ViewGroup)에 itemView 추가
                                 addView(itemView.root)
                             }
@@ -282,10 +294,18 @@ class MainActivity : AppCompatActivity() {
 //                            // 하늘 상태 혹은 강우 형태 내용 설정
 //                            itemView.weatherTextView.text = forecast.weather
 //                            // 1시간 기온 값 내용 설정
-//                            itemView.temperatureTextView.text =
-//                                getString(R.string.temperature_text, forecast.temperature)
-//                            itemView.precipitationTextView.text =
-//                                getString(R.string.precipitation_text, forecast.precipitation)
+//                                itemView.temperatureTextView.text =
+//                                    getString(R.string.temperature_text, forecast.temperature)
+
+//                                itemView.precipitationPercentageTextView.text =
+//                                    getString(
+//                                        R.string.precipitation_precent_text,
+//                                        forecast.precipitationPercent
+//                                    )
+//                                 // 시간당 강우량 내용 설정
+//                                itemView.precipitationTextView.text =
+//                                    if(forecast.precipitation=="강수없음") forecast.precipitation
+//                                    else "시간당 강수량: ${forecast.precipitation}"
 //                            // LinearLayout(ViewGroup)에 itemView 추가
 //                            addView(itemView.root)
 //                        }

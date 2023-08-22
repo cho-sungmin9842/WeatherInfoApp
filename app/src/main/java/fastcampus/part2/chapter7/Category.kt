@@ -7,6 +7,8 @@ enum class Category {
     POP,    // 강수확률
     @SerializedName("PTY")
     PTY,    // 강수형태
+    @SerializedName("PCP")
+    PCP,    // 1시간 강수량
     @SerializedName("SKY")
     SKY,    // 하늘 상태
     @SerializedName("TMP")

@@ -30,7 +30,7 @@
         tools:text="맑음" />
 
     <TextView
-        android:id="@+id/precipitationTextView"
+        android:id="@+id/precipitationPercentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -40,5 +40,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/skyTextView"
         tools:text="강수확률 0%" />
+
+    <TextView
+        android:id="@+id/precipitationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/precipitationPercentTextView"
+        tools:text="시간량 강수량: 8mm" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
