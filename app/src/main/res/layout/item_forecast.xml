@@ -45,12 +45,21 @@
         tools:text="10" />
 
     <TextView
-        android:id="@+id/precipitationTextView"
+        android:id="@+id/precipitationPercentageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         tools:text="강수확률: 30%" />
+
+    <TextView
+        android:id="@+id/precipitationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="시간량 강수량: 8mm" />
 
 </LinearLayout>

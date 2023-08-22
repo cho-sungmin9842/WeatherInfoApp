@@ -54,13 +54,16 @@ object WeatherRepository {
                     forecastDateTimeMap["${forecast.forecastDate}/${forecast.forecastTime}"]?.apply {
                         when (forecast.category) {
                             // category가 강수 확률인 경우
-                            Category.POP -> precipitation = forecast.forecastValue.toInt()
+                            Category.POP -> precipitationPercent = forecast.forecastValue.toInt()
                             // category가 강수 형태인 경우
                             Category.PTY -> precipitationType = transformRainType(forecast)
                             // category가 하늘 상태인 경우
                             Category.SKY -> sky = transformSky(forecast)
                             // category가 1시간 기온인 경우
                             Category.TMP -> temperature = forecast.forecastValue.toDouble()
+                            // category가 1시간당 강수량인 경우
+                            Category.PCP->  precipitation=forecast.forecastValue
+
                             else -> {}
                         }
                     }

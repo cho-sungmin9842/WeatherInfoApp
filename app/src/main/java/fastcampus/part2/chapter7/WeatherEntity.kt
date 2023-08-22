@@ -37,7 +37,7 @@ data class ForecastEntity(
     val forecastDate: String,   // 예보일
     @SerializedName("fcstTime")
     val forecastTime: String,   // 예보시간
-   @SerializedName("fcstValue")
+    @SerializedName("fcstValue")
     val forecastValue: String,  // 예보값
     @SerializedName("nx")
     val nx: Int,    // 예보지점 x좌표

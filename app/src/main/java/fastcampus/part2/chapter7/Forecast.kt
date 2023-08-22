@@ -5,7 +5,8 @@ data class Forecast(
     val forecastTime: String,   // 예보 시간
     var temperature: Double = 0.0,  // 1시간 기온
     var sky: String = "",   // 하늘 상태
-    var precipitation: Int = 0, // 강수 확률
+    var precipitationPercent: Int = 0, // 강수 확률
+    var precipitation: String = "", // 시간당 강수량
     var precipitationType: String = ""  // 강수 형태
 ) {
     val weather: String
