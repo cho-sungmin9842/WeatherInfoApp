@@ -8,3 +8,6 @@ https://www.data.go.kr/data/15084084/openapi.do
 
 데모 스크린샷 링크
 https://github.com/cho-sungmin9842/WeatherInfoApp/tree/master/screenshot
+
+앱 다운로드(app-debug.apk)
+https://github.com/cho-sungmin9842/WeatherInfoApp/blob/master/app/release/app-debug.apk
