@@ -70,15 +70,3 @@ CLI로 빌드하려면:
 ```bash
 ./gradlew assembleDebug
 ```
-
-## 알려진 이슈 / 개선하면 좋은 부분
-
-- 서비스 키가 유효하지 않거나 API 응답이 비어 있으면 예외를 `printStackTrace()`로만 로그에 남기고 사용자에게는 아무 안내 없이 로딩 화면처럼 빈 화면이 계속 표시됩니다. 실패 시 재시도 버튼이나 에러 메시지를 보여주면 좋을 것 같습니다.
-- `MainActivity.kt`에 주석 처리된 중복 코드가 90줄 가량 남아있어 정리가 필요합니다.
-- `GeoPointConverter.kt`에 디버그용 `Log.e` 호출이 남아있습니다.
-- API 통신에 `usesCleartextTraffic="true"`(평문 HTTP)를 사용하고 있어, API가 HTTPS를 지원한다면 전환을 고려할 만합니다.
-- UI 문자열 일부가 코드에 하드코딩되어 있어 `strings.xml`로 옮기면 유지보수에 유리합니다.
-
-## 보안 참고
-
-과거 커밋에 서비스 키가 포함된 `key.xml`과, 같은 키가 내장된 빌드 산출물(`app/release/app-debug.apk`, `app-release.aab`)이 올라가 있던 적이 있어 히스토리에서 완전히 제거했습니다. 키는 항상 `.gitignore` 처리된 `key.xml`로만 관리하고, 빌드 산출물(APK/AAB)은 저장소에 커밋하지 않는 것을 권장합니다.
